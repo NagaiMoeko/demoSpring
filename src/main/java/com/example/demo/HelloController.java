@@ -1,13 +1,16 @@
 package com.example.demo;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class HelloController {
 
-	@RequestMapping(value = "/hello")
-	public String hello() {
-		return "/index.html";
+	@GetMapping("/hello")
+	public String hello(Model model) {
+		model.addAttribute("message", "Hello World");
+		return "index";
 	}
+
 }
